@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import io from "socket.io-client";
-
+import Popup from "./popup";
 import "../style/dashboard.css";
 
 const socket = io("https://message-emiter.vercel.app/", {
@@ -12,9 +12,14 @@ function ChatApp() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [username, setUsername] = useState("");
+  const [targetMessage, setTargetMessage] = useState("");
 
-  const remove = (id, value) => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const togglePopup = (id, value) => {
+    setIsPopupOpen(!isPopupOpen);
     console.log({ id, value });
+    setTargetMessage(value);
   };
 
   useEffect(() => {
@@ -69,6 +74,10 @@ function ChatApp() {
 
   return (
     <div>
+      <Popup isOpen={isPopupOpen} onClose={togglePopup}>
+        <p>{targetMessage}</p>
+      </Popup>
+
       <div className="dashboard-header">
         <h1>Robotic</h1>
       </div>
@@ -76,10 +85,10 @@ function ChatApp() {
       <div className="messages-dashboard">
         {messages.map((msg, index) => (
           <p key={index}>
-            <strong onClick={() => remove(msg.username, msg.message)}>
-              {msg.username}
+            <strong>{msg.username}</strong>:{" "}
+            <strong onClick={() => togglePopup(msg.username, msg.message)}>
+              {msg.message}
             </strong>
-            : {msg.message}
           </p>
         ))}
       </div>
