@@ -63,7 +63,7 @@ function ChatApp() {
 
   return (
     <div>
-      <h1>Chat Application</h1>
+      <h1>Robotic</h1>
       <div>
         {messages.map((msg, index) => (
           <div key={index}>
