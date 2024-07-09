@@ -13,6 +13,10 @@ function ChatApp() {
   const [newMessage, setNewMessage] = useState("");
   const [username, setUsername] = useState("");
 
+  const remove = (id, value) => {
+    console.log({ id, value });
+  };
+
   useEffect(() => {
     const usernameFromStorage = localStorage.getItem("username");
 
@@ -72,7 +76,10 @@ function ChatApp() {
       <div className="messages-dashboard">
         {messages.map((msg, index) => (
           <p key={index}>
-            <strong>{msg.username}</strong>: {msg.message}
+            <strong onClick={() => remove(msg.username, msg.message)}>
+              {msg.username}
+            </strong>
+            : {msg.message}
           </p>
         ))}
       </div>

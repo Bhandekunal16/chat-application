@@ -1,13 +1,17 @@
 .messages-dashboard {
   height: 70vh;
-  width: 95vw;
-  padding: 1%;
+  width: 97vw;
   border: dotted 1px #000;
   overflow: hidden;
   margin: 1%;
   border-radius: 8px;
   background-color: #292c33;
   color: #f4f4f4;
+}
+
+.messages-dashboard p{
+    padding: 1%;
+    border: #374754 solid 1px;
 }
 
 .messages-sender-dashboard {
