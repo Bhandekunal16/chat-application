@@ -54,7 +54,7 @@ function ChatApp() {
     if (!newMessage.trim()) return;
 
     axios
-      .post("http://message-emiter.vercel.app/api/messages", {
+      .post("https://message-emiter.vercel.app/api/messages", {
         username,
         message: newMessage,
       })
