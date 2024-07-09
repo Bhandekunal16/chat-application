@@ -18,7 +18,6 @@ function ChatApp() {
 
   const togglePopup = (id, value) => {
     setIsPopupOpen(!isPopupOpen);
-    console.log({ id, value });
     setTargetMessage(value);
   };
 
