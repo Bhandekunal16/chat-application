@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import io from "socket.io-client";
+import "../style/dashboard.css";
 
 const socket = io("https://message-emiter.vercel.app/", {
   transports: ["websocket"],
@@ -13,7 +14,7 @@ function ChatApp() {
 
   useEffect(() => {
     const usernameFromStorage = localStorage.getItem("username");
-    
+
     if (usernameFromStorage) {
       setUsername(usernameFromStorage);
     } else {
@@ -64,19 +65,21 @@ function ChatApp() {
   return (
     <div>
       <h1>Robotic</h1>
-      <div>
+      <div className="messages-dashboard">
         {messages.map((msg, index) => (
-          <div key={index}>
+          <p key={index}>
             <strong>{msg.username}</strong>: {msg.message}
-          </div>
+          </p>
         ))}
       </div>
-      <input
-        type="text"
-        value={newMessage}
-        onChange={(e) => setNewMessage(e.target.value)}
-      />
-      <button onClick={sendMessage}>Send Message</button>
+      <div className="messages-sender-dashboard">
+        <input
+          type="text"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+        />
+        <button onClick={sendMessage}>Send Message</button>
+      </div>
     </div>
   );
 }

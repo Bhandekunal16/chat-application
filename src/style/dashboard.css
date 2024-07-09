@@ -1,0 +1,33 @@
+.messages-dashboard {
+  height: 70vh;
+  width: 95vw;
+  padding: 1%;
+  border: dotted 1px #000;
+  overflow: hidden;
+  margin: 1%;
+  border-radius: 8px;
+}
+
+.messages-sender-dashboard {
+  width: 95vw;
+  padding: 1%;
+  border: dotted 1px #000;
+  overflow: hidden;
+  margin: 1%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.messages-sender-dashboard button {
+    padding: 1%;
+    width: fit-content;
+    border-radius: 8px;
+}
+
+.messages-sender-dashboard input {
+    padding: 1%;
+    width: 40vw;
+    border-radius: 8px;
+}
