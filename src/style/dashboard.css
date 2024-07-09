@@ -6,6 +6,8 @@
   overflow: hidden;
   margin: 1%;
   border-radius: 8px;
+  background-color: #292c33;
+  color: #f4f4f4;
 }
 
 .messages-sender-dashboard {
@@ -18,16 +20,33 @@
   justify-content: space-evenly;
   align-items: center;
   border-radius: 8px;
+  background-color: #292c33;
 }
 
 .messages-sender-dashboard button {
-    padding: 1%;
-    width: fit-content;
-    border-radius: 8px;
+  padding: 1%;
+  width: fit-content;
+  border-radius: 8px;
+  background-color: #0989fc;
+  color: #fff;
+  border: transparent;
+}
+
+.messages-sender-dashboard button:hover {
+  background-color: #213a63;
 }
 
 .messages-sender-dashboard input {
-    padding: 1%;
-    width: 40vw;
-    border-radius: 8px;
+  padding: 1%;
+  width: 40vw;
+  border-radius: 8px;
+  border: transparent;
+}
+
+.dashboard-header h1{
+    margin-left: 5%;
+}
+
+.dashboard-header {
+    background-color: #4d4a57;
 }

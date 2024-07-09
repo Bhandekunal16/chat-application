@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import io from "socket.io-client";
+
 import "../style/dashboard.css";
 
 const socket = io("https://message-emiter.vercel.app/", {
@@ -64,7 +65,10 @@ function ChatApp() {
 
   return (
     <div>
-      <h1>Robotic</h1>
+      <div className="dashboard-header">
+        <h1>Robotic</h1>
+      </div>
+
       <div className="messages-dashboard">
         {messages.map((msg, index) => (
           <p key={index}>
@@ -78,7 +82,7 @@ function ChatApp() {
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
         />
-        <button onClick={sendMessage}>Send Message</button>
+        <button onClick={sendMessage}>Send</button>
       </div>
     </div>
   );
