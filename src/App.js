@@ -5,6 +5,7 @@ import {
   Route as RouteV6,
 } from "react-router-dom";
 import ChatApp from "./component/dashboard";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <Analytics />
     </>
   );
 }
