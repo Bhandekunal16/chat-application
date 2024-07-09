@@ -13,6 +13,7 @@ function ChatApp() {
 
   useEffect(() => {
     const usernameFromStorage = localStorage.getItem("username");
+    
     if (usernameFromStorage) {
       setUsername(usernameFromStorage);
     } else {
