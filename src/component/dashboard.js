@@ -41,7 +41,7 @@ function ChatApp() {
     return () => {
       socket.disconnect();
     };
-  }, []);
+  }, [newMessage]);
 
   const sendMessage = () => {
     if (!newMessage.trim()) return;
