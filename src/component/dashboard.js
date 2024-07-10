@@ -4,7 +4,7 @@ import io from "socket.io-client";
 function ChatApp() {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
-  const socket = io("https://message-emiter.vercel.app/", {
+  const socket = io("https://message-emiter.vercel.app", {
     transports: ["websocket"],
   });
 
