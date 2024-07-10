@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
-import io from "socket.io-client";
+import { io } from "socket.io-client";
 
 function ChatApp() {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
-  const socket = io("https://message-emiter.vercel.app", {
+
+  const socket = io("http://localhost:3000", {
     transports: ["websocket"],
+  });
+
+  socket.on("connect_error", (error) => {
+    console.error("WebSocket connection error:", error);
+    if (error.message.includes("certificate")) {
+      console.error("SSL/TLS certificate error");
+    } else if (error.message.includes("timeout")) {
+      console.error("Connection timeout");
+    } else {
+      console.error("Other connection error");
+    }
   });
 
   useEffect(() => {
