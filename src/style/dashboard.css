@@ -2,7 +2,7 @@
   height: 70vh;
   width: 97vw;
   border: dotted 1px #000;
-  overflow: hidden;
+  overflow: auto;
   margin: 1%;
   border-radius: 8px;
   background-color: #292c33;

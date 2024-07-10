@@ -4,7 +4,10 @@ import io from "socket.io-client";
 import Popup from "./popup";
 import "../style/dashboard.css";
 
-const socket = io("https://message-emiter.vercel.app/", {
+// const serverPath = "https://message-emiter.vercel.app/";
+const localPath = "http://localhost:3000/";
+
+const socket = io(localPath, {
   transports: ["websocket"],
 });
 
@@ -37,7 +40,7 @@ function ChatApp() {
 
   useEffect(() => {
     axios
-      .get("https://message-emiter.vercel.app/api/messages")
+      .get(localPath)
       .then((res) => {
         setMessages(res.data);
       })
@@ -58,7 +61,7 @@ function ChatApp() {
     if (!newMessage.trim()) return;
 
     axios
-      .post("https://message-emiter.vercel.app/api/messages", {
+      .post(localPath, {
         username,
         message: newMessage,
       })
