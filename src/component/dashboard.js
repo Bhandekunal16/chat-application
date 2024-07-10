@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { io } from "socket.io-client";
+import "../style/dashboard.css";
 
 function ChatApp() {
   const [message, setMessage] = useState("");
@@ -47,15 +48,18 @@ function ChatApp() {
 
   return (
     <div>
-      <h1>Chat ChatApp</h1>
-      <div>
+      <div className="dashboard-header">
+        <h1>Message</h1>
+      </div>
+
+      <div className="messages-dashboard">
         <ul>
           {chats.map((chat, index) => (
             <li key={index}>{chat}</li>
           ))}
         </ul>
       </div>
-      <form onSubmit={sendMessage}>
+      <form onSubmit={sendMessage} className="messages-sender-dashboard">
         <input
           type="text"
           value={message}
